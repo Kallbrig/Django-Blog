@@ -1,0 +1,55 @@
+{% extends "blogapp/base.html" %}
+
+{% block content %}
+
+<br>
+{% for post in posts %}
+
+<div class="card shadow-sm text-white bg-dark  p-0 mb-3  ">
+
+
+    <!--    <div class="card-header bg-transparent pb-0 row text-right">-->
+    <div class="row p-1">
+
+        <img class=" ml-3 align-self-start rounded-circle" style="height: 50px;" src="{{ post.author.profile.image.url }}" alt="dicks">
+
+        <div class="col"><h4 class=" pl-3 text-left text-bold"><a class="text-white" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h4>
+        </div>
+        <div class="col text-right align-right text-align-center">
+
+
+                <p class="d-inline font-weight-bolder text-white">
+                    <a class=" d-inline font-weight-bolder text-white" href="#">{{ post.author }}</a>
+                </p>
+                <small class="">- {{ post.date_posted|date:"F d, Y" }}</small>
+
+        </div>
+
+    </div>
+    <!--    </div>-->
+
+    <div class="card-body">
+
+        <p class="">{{ post.content }}</p>
+
+    </div>
+
+
+</div>
+
+<!--<br>-->
+<!--<article class="media content-section">-->
+<!--    <div class="media-body">-->
+<!--        <div class="article-metadata">-->
+<!--            <a class="mr-2" href="#">{{ post.author }}</a>-->
+<!--            <small class="text-muted">{{ post.date_posted }}</small>-->
+<!--        </div>-->
+<!--        <h2><a class="article-title" href="#">{{ post.title }}</a></h2>-->
+<!--        <p class="article-content">{{ post.content }}</p>-->
+<!--    </div>-->
+<!--</article>-->
+<!--<br>-->
+
+{% endfor %}
+
+{% endblock content %}

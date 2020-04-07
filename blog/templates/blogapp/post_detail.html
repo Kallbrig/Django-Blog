@@ -1,0 +1,50 @@
+{% extends "blogapp/base.html" %}
+
+{% block content %}
+
+<br>
+
+
+<div class="card shadow-sm text-white bg-dark  p-0 mb-3  ">
+
+
+    <!--    <div class="card-header bg-transparent pb-0 row text-right">-->
+    <div class="row p-1">
+
+        <img class=" ml-3 align-self-start rounded-circle" style="height: 50px;"
+             src="{{ object.author.profile.image.url }}" alt="Profile Photo">
+
+        <div class="col"><h4 class=" pl-3 text-left text-bold text-white">{{ object.title }}</h4>
+        </div>
+        <div class="col " style="max-height: 5%;">
+
+
+            <p class="d-inline font-weight-bolder text-white">
+                <a class=" d-inline font-weight-bolder text-white" href="#">{{ object.author }}</a>
+            </p>
+            <small class="">- {{ object.date_posted|date:"F d, Y" }}</small>
+
+        </div>
+
+    </div>
+
+
+    <div class="card-body">
+
+        <p class="">{{ object.content }}</p>
+
+    </div>
+
+    {% if object.author == user %}
+
+        <div class="form-group mr-4">
+            <a href="{% url 'post-update' post.id %}" class="btn btn-light float-right m-1" role="button" >Edit</a>
+            <a href="{% url 'post-delete' post.id %}" class="btn btn-danger float-right m-1" role="button" >Delete</a>
+        </div>
+
+    {% endif %}
+</div>
+
+
+
+{% endblock content %}
