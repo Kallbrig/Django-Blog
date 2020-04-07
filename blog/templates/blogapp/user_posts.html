@@ -1,7 +1,9 @@
 {% extends "blogapp/base.html" %}
 
 {% block content %}
-
+<h1 class="mb-3">
+Posts by {{ view.kwargs.username }} ({{page_obj.paginator.count}})
+</h1>
 <br>
 {% for post in posts %}
 
@@ -12,7 +14,7 @@
     <div class="row p-1">
 
         <img class=" ml-3 align-self-start rounded-circle" style="height: 50px;"
-             src="{{ post.author.profile.image.url }}" alt="dicks">
+             src="{{ post.author.profile.image.url }}" alt="{{ post.author.username }} Profile Photo">
 
         <div class="col">
             <h4 class=" pl-3 text-left text-bold">
@@ -45,19 +47,6 @@
 {% endfor %}
 
 
-<!--<div class="row">-->
-
-<!--    {% if page_obj.has_previous %}-->
-<!--    <a href="?page={{ page_obj.previous_page_number }}" class="btn-info m-4">-->
-<!--        Page {{ page_obj.previous_page_number }}-->
-<!--    </a>-->
-<!--    {% endif %}-->
-
-<!--    <p class=" m-4"> Page {{ page_obj.number }}</p>-->
-<!--    {% if page_obj.has_next %}-->
-<!--    <a href="?page={{ page_obj.next_page_number }}" class="btn-info m-4">Page {{ page_obj.next_page_number }}</a>-->
-<!--    {% endif %}-->
-<!--</div>-->
 {% if is_paginated %}
 
 
