@@ -5,5 +5,8 @@ This application was built by following the Youtube Tutorial @ https://www.youtu
 
 
 # What I learned
-* I became more familliar with Django's ins and outs such as models, Class based views, and forms
+* I became more familliar with Django's ins and outs such as Models, Class based views, and Forms
 * HTML is coming more quickly with the help of Bootstrap.
+* I learned about Django's default behavior like naming conventions. This is exemplified in the password reset templates specifically.
+* I learned about using Crispy forms to display Bootstrap-like forms.
+* I used Pillow to handle uploading and resizing imanges for user profile photos.
