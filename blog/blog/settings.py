@@ -19,6 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# This was left in the code because this application will never go into production.
 SECRET_KEY = '_-z17haor9ep3ki6^!d3@_qo%c09-slw0))d2y39wd=7#cekwb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -128,3 +129,15 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'
 
 LOGIN_URL = 'login'
+
+# this is set up for Gmail. Other email clients will be set differently.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = 'chase.allbright@gmail.com'
+
+# Your Password goes Here
+# An app specific password can be found/created at https://myaccount.google.com/apppasswords
+EMAIL_HOST_PASSWORD = ''
